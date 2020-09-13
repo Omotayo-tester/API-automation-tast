@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "ee62a5c1-2b96-4892-9519-f8ec1c97902e",
+		"name": "API authomation task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get",
+			"item": [
+				{
+					"name": "Get All Todo Entries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a95ca28a-61a9-4dae-be90-47fea0a03409",
+								"exec": [
+									"//Test1: To confirm test status code\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//Test2: To confirm status code has the right string\r",
+									"pm.test(\"Status code has OK has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"//Test3: To confirm body has the right string\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vaseurl}}/todo",
+							"host": [
+								"{{vaseurl}}"
+							],
+							"path": [
+								"todo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Entries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d61c5959-d3a0-41db-a566-84166a03a298",
+								"exec": [
+									"//Test1: To confirm test status code\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//Test2: To confirm status code has the right string\r",
+									"pm.test(\"Status code has OK has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"//Test3: To confirm the body has response\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vaseurl}}",
+							"host": [
+								"{{vaseurl}}"
+							]
+						},
+						"description": "https://demo.fusio-project.org/index.php/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get entry per ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "abbb636f-7b2c-4cc2-b7a1-2fa10ac4bfb7",
+								"exec": [
+									"//Test1: To confirm test status code\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//Test2: To confirm status code has the right string\r",
+									"pm.test(\"Status code has OK has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"//Test3: To confirm the body has response\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vaseurl}}/todo/?todo_id=2",
+							"host": [
+								"{{vaseurl}}"
+							],
+							"path": [
+								"todo",
+								""
+							],
+							"query": [
+								{
+									"key": "todo_id",
+									"value": "2"
+								}
+							]
+						},
+						"description": "https://demo.fusio-project.org/index.php/todo/:todo_id"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "Create new Entry",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e430356-1036-4268-b1e8-0a5f9d8e6638",
+								"exec": [
+									"//Test1: To confirm test status code\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//Test2: To confirm status code has the right string\r",
+									"pm.test(\"Status code has OK has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"//Test3: To confirm the body has response\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1\",\n    \"status\": \"1\",\n    \"title\": \"Task 1\",\n    \"insertDate\": \"2020-04-10 15:58:27\"\n}"
+						},
+						"url": {
+							"raw": "{{vaseurl}}/todo",
+							"host": [
+								"{{vaseurl}}"
+							],
+							"path": [
+								"todo"
+							]
+						},
+						"description": "https://demo.fusio-project.org/index.php/todo"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "delete",
+			"item": [
+				{
+					"name": "Delete a todo per ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9d3a7e19-26fe-40c0-a3b5-b44f43e37bac",
+								"exec": [
+									"//Test1: To confirm test status code\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//Test2: To confirm status code has the right string\r",
+									"pm.test(\"Status code has OK has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"//Test3: To confirm the body has response\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{vaseurl}}/todo?todo_id=2",
+							"host": [
+								"{{vaseurl}}"
+							],
+							"path": [
+								"todo"
+							],
+							"query": [
+								{
+									"key": "todo_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
